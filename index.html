@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GALAXY OS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header id="top-bar">
+    <div class="left-menu">
+      <span class="app-title">GALAXY OS</span>
+      <span>Terminal</span>
+    </div>
+    <div class="right-menu">
+      <span id="top-clock">Tue Jun 18 10:43 AM</span>
+    </div>
+  </header>
+
+
+  <main id="desktop">
+    <div class="wallpaper-title">
+      <h1>GALAXY OS</h1>
+      <p>Click dock icons below to open apps</p>
+    </div>
+
+
+    <div class="window hidden" id="terminal-window" style="top: 80px; left: 100px;">
+      <div class="window-header" onmousedown="startDrag(event, 'terminal-window')">
+        <div class="mac-controls">
+          <span class="mac-btn close" onclick="closeWindow('terminal-window')"></span>
+          <span class="mac-btn minimize"></span>
+          <span class="mac-btn maximize"></span>
+        </div>
+        <span class="window-title">Terminal</span>
+      </div>
+      <div class="window-body">
+        <div id="terminal-output">
+          <p>GALAXY OS v1.0 [macOS Desktop Mode]</p>
+          <p>Type <span class="highlight">'help'</span> for available commands.</p>
+        </div>
+        <div class="input-line">
+          <span class="prompt">user@galaxy-os:~#</span>
+          <input type="text" id="terminal-input" autofocus autocomplete="off">
+        </div>
+      </div>
+    </div>
+
+    <!-- Window 2: System Info -->
+    <div class="window hidden" id="system-window" style="top: 120px; left: 520px;">
+      <div class="window-header" onmousedown="startDrag(event, 'system-window')">
+        <div class="mac-controls">
+          <span class="mac-btn close" onclick="closeWindow('system-window')"></span>
+          <span class="mac-btn minimize"></span>
+          <span class="mac-btn maximize"></span>
+        </div>
+        <span class="window-title">System Diagnostics</span>
+      </div>
+      <div class="window-body">
+        <p>OS VERSION: <span class="accent">GALAXY OS 1.0</span></p>
+        <p>PROCESSOR: <span class="accent">Quantum Core / 4.2 GHz</span></p>
+        <p>MEMORY: <span class="accent">32 GB Unified Space Memory</span></p>
+        <p>STATUS: <span class="accent">All Systems Operational</span></p>
+      </div>
+    </div>
+
+    <div class="window hidden" id="notes-window" style="top: 200px; left: 280px;">
+      <div class="window-header" onmousedown="startDrag(event, 'notes-window')">
+        <div class="mac-controls">
+          <span class="mac-btn close" onclick="closeWindow('notes-window')"></span>
+          <span class="mac-btn minimize"></span>
+          <span class="mac-btn maximize"></span>
+        </div>
+        <span class="window-title">Quick Notes</span>
+      </div>
+      <div class="window-body">
+        <textarea id="log-notes" placeholder="Write notes here..."></textarea>
+      </div>
+    </div>
+  </main>
+
+  
+  <footer id="dock-container">
+    <div id="dock">
+      <div class="dock-item" onclick="openWindow('terminal-window')">💻</div>
+      <div class="dock-item" onclick="openWindow('system-window')">📊</div>
+      <div class="dock-item" onclick="openWindow('notes-window')">📝</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
